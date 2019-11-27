@@ -120,11 +120,11 @@ class Category extends AbstractNode
         }
 
         $node = $this->nodes[$nodeId];
-        $categoryId = (int) $node->getContent();
+        $categoryId = $node->getContent();
         $currentCategory = $this->getCurrentCategory();
 
         return $currentCategory
-            ? $currentCategory->getId() == $categoryId
+            ? in_array($categoryId, explode('/', $currentCategory->getPath()))
             : false;
     }
 
