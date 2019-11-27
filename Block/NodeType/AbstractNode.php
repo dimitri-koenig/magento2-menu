@@ -42,7 +42,7 @@ abstract class AbstractNode extends Template implements NodeTypeInterface
      *
      * @var bool
      */
-    protected $viewAllLink = true;
+    protected $viewAllLink = false;
 
     /**
      * @var TemplateResolver
