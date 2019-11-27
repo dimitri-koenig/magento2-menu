@@ -1,3 +1,5 @@
+### Forked: https://github.com/dimitri-koenig/magento2-menu
+
 [![Packagist](https://img.shields.io/packagist/v/snowdog/module-menu.svg)](https://packagist.org/packages/snowdog/module-menu) [![Packagist](https://img.shields.io/packagist/dt/snowdog/module-menu.svg)](https://packagist.org/packages/snowdog/module-menu)
 
 # Magento 2 Menu
@@ -59,4 +61,3 @@ Newly created block with additional method should be added via `di.xml` defining
    
  * `/rest/V1/menus`: retrieves available menus
  * `/rest/V1/nodes`: retrieves nodes by menuId
- 
