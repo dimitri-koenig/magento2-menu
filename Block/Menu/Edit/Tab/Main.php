@@ -55,7 +55,7 @@ class Main extends Generic implements TabInterface
         $values = [];
         foreach ($this->_storeManager->getStores(false) as $storeId => $store) {
             $values[] = [
-                'label' => $store->getName(),
+                'label' => sprintf('%s - %s (%s)', $store->getWebsite()->getName(), $store->getName(), $store->getCode()),
                 'value' => $storeId,
             ];
         }
