@@ -44,7 +44,7 @@ class Nodes extends Template implements TabInterface
         $menu = $this->registry->registry(Edit::REGISTRY_CODE);
         $data = [];
         if ($menu) {
-            $nodes = $this->nodeRepository->getByMenu($menu->getId());
+            $nodes = $this->nodeRepository->getByMenu($menu->getId(), false);
             if (!empty($nodes)) {
                 foreach ($nodes as $node) {
                     $level = $node->getLevel();
@@ -127,7 +127,8 @@ class Nodes extends Template implements TabInterface
                 'target' => $node->getTarget(),
                 'id' => $node->getId(),
                 'title' => $node->getTitle(),
-                'columns' => $this->renderNodeList($level + 1, $node->getId(), $data) ? $this->renderNodeList($level + 1, $node->getId(), $data) : []
+                'columns' => $this->renderNodeList($level + 1, $node->getId(), $data) ? $this->renderNodeList($level + 1, $node->getId(), $data) : [],
+                'isActive' => (bool)$node->getIsActive(),
             ];
         }
         return $menu;

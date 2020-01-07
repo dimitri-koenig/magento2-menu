@@ -11,8 +11,7 @@
                 class="input-text admin__control-text"
                 :id="fieldId"
                 :type="type"
-                :value="value"
-                @input="updateValue($event.target.value)"
+                v-model="newValue"
             />
         </div>
     </div>
@@ -24,12 +23,13 @@ define(["Vue"], function(Vue) {
         props: ['label', 'id', 'type', 'value'],
         data: function() {
             return {
-                fieldId: ''
+                fieldId: '',
+                newValue: this.value,
             }
         },
-        methods: {
-            updateValue: function(value) {
-                this.$emit('input', value);
+        watch: {
+            newValue: function(newValue) {
+                this.$emit('input', newValue);
             }
         },
         mounted: function() {

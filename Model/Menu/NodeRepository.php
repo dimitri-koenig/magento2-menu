@@ -102,14 +102,18 @@ class NodeRepository implements NodeRepositoryInterface
         return $searchResults;
     }
 
-    public function getByMenu($menuId)
+    public function getByMenu($menuId, $onlyActive = true)
     {
         $collection = $this->collectionFactory->create();
         $collection->addFilter('menu_id', $menuId);
-        $collection->addFilter('is_active', 1);
         $collection->addOrder('level', AbstractCollection::SORT_ORDER_ASC);
         $collection->addOrder('parent_id', AbstractCollection::SORT_ORDER_ASC);
         $collection->addOrder('position', AbstractCollection::SORT_ORDER_ASC);
+
+        if ($onlyActive) {
+            $collection->addFilter('is_active', 1);
+        }
+
         return $collection->getItems();
     }
 

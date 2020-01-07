@@ -8,6 +8,13 @@
         >
         </simple-field>
         <simple-field
+                :label="config.translation.isActive"
+                id="is_active"
+                type="checkbox"
+                v-model="item.isActive"
+        >
+        </simple-field>
+        <simple-field
             :label="config.translation.nodeClasses"
             id="node_classes"
             type="text"
